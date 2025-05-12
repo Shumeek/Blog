@@ -1,0 +1,90 @@
+/* Основна палітра */
+:root {
+  --cream: #FAF3E0;
+  --pastel-yellow: #F4E3B2;
+  --caramel: #D9B382;
+  --cocoa: #8C5E3C;
+  --chocolate: #4E342E;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--cream);
+  color: var(--chocolate);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 30px;
+  background-color: var(--caramel);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.page-title {
+  color: var(--cocoa);
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-input {
+  padding: 12px;
+  border: 1px solid var(--chocolate);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+textarea.form-input {
+  height: 150px;
+}
+
+.btn-primary {
+  background-color: var(--cocoa);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6e4429;
+}
+
+.back-link {
+  margin-top: 20px;
+}
+
+.link-text {
+  font-size: 14px;
+  color: var(--chocolate);
+}
+
+.link-text a {
+  color: var(--cocoa);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-text a:hover {
+  text-decoration: underline;
+}

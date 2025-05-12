@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Створити пост</title>
+    <link rel="stylesheet" href="/css/createPost.css"> <!-- Підключення стилів -->
+</head>
+<body>
+
+<div class="container">
+    <h1 class="page-title">Створіть новий пост</h1>
+
+    <form th:action="@{/posts/new}" method="post" class="create-post-form">
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" required class="form-input"><br><br>
+
+        <label for="content">Контент:</label>
+        <textarea id="content" name="content" required class="form-input"></textarea><br><br>
+
+        <button type="submit" class="btn-primary">Створити пост</button>
+    </form>
+
+    <div class="back-link">
+        <a href="/posts" class="link-text">Повернутися до постів</a>
+    </div>
+</div>
+
+</body>
+</html>

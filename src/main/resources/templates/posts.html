@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пости</title>
+  <link rel="stylesheet" href="/css/posts.css"> <!-- Підключення стилів для сторінки постів -->
+</head>
+<body>
+
+<div class="container">
+  <h1 class="page-title">Усі пости</h1>
+
+  <div class="create-post-link">
+    <a href="/posts/new" class="btn-primary">Створити новий пост</a>
+  </div>
+
+  <div class="posts-list">
+    <ul>
+      <li th:each="post : ${posts}" class="post-item">
+        <h3><a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}" class="post-title"></a></h3>
+        <p class="post-content" th:text="${post.content}"></p>
+
+        <!-- Перевірка наявності коментарів, якщо коментарі є, вони будуть відображені -->
+        <div th:if="${post.comments != null and post.comments.size() > 0}" class="comments">
+          <a class="comment-link">Коментарі</a>
+          <div th:each="comment : ${post.comments}" class="comment-item">
+            <p th:text="${comment.content}" class="comment-content"></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="logout-link">
+    <a href="/logout" class="link-text">Вийти</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${post.title}">Post</title>
+  <link rel="stylesheet" href="/css/viewPost.css"> <!-- Підключення стилів -->
+</head>
+<body>
+
+<div class="container">
+  <h1 class="post-title" th:text="${post.title}">Title</h1>
+  <p class="post-content" th:text="${post.content}">Content</p>
+  <p class="post-meta">Автор: <span th:text="${post.author.username}"></span></p>
+  <p class="post-meta">Створено: <span th:text="${post.createdAt}"></span></p>
+
+  <hr/>
+
+  <h3>Коментарі:</h3>
+  <!-- Перевірка наявності коментарів -->
+  <div th:if="${comments != null and comments.size() > 0}">
+    <ul class="comments-list">
+      <li th:each="comment : ${comments}">
+        <strong th:text="${comment.author.username}">Автор</strong>:
+        <span th:text="${comment.content}">Текст коментаря</span>
+      </li>
+    </ul>
+  </div>
+  <!-- Повідомлення, якщо коментарів немає -->
+  <div th:if="${comments == null or comments.size() == 0}">
+    <p>Тут ще немає коментарів</p>
+  </div>
+
+  <hr/>
+  <h3>Залишити коментар:</h3>
+  <form th:action="@{/comments/new}" method="post" class="comment-form">
+    <input type="hidden" name="postId" th:value="${post.id}" />
+    <textarea name="content" placeholder="Ваш коментар..." required class="form-input"></textarea><br/>
+    <button type="submit" class="btn-primary">Додати коментар</button>
+  </form>
+
+  <br/>
+  <a href="/posts" class="link-text">← Назад до всіх постів</a>
+</div>
+
+</body>
+</html>
