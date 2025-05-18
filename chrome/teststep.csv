@@ -1,0 +1,6 @@
+Keyword;TargetElement;InputData
+Open URL;;http://localhost:8080/auth/login
+Input Text;id=email;maryegoo@gmail.com
+Input Text;id=password;123456
+Click Button;id=loginBtn;
+Verify Text;;Welcome
